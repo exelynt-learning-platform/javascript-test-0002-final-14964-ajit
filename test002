@@ -1,0 +1,29 @@
+let n = 5;
+
+for (let i = 0; i < n; i++) {
+    // Print leading spaces
+    for (let j = 0; j < i; j++) {
+        process.stdout.write(" ");
+    }
+
+    // Print pattern values
+    let value = 1;
+    for (let j = 0; j < n - i; j++) {
+        process.stdout.write(value + " ");
+        value = value * (n - i - 1 - j) / (j + 1);
+    }
+
+    // Print decreasing side
+    let arr = [];
+    value = 1;
+    for (let j = 0; j < n - i - 1; j++) {
+        arr.push(value);
+        value = value * (n - i - 1 - j) / (j + 1);
+    }
+
+    for (let j = arr.length - 2; j >= 0; j--) {
+        process.stdout.write(arr[j] + " ");
+    }
+
+    console.log();
+}
